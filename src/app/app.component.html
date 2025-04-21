@@ -1,3 +1,41 @@
-<h1 class="text-3xl font-bold underline">
-  Hello world!
-</h1>
+<app-navbar></app-navbar>
+
+<!-- Hero -->
+<header class="text-center py-16 px-4 bg-[#F8FAFC]">
+  <h1 class="text-4xl font-bold mb-4">Welcome to Midnight Blog</h1>
+  <p class="text-[#64748B] max-w-xl mx-auto mb-6">Explore tech, thoughts, and stories from creators around the world.
+  </p>
+  <input type="text" placeholder="Search articles..."
+    class="px-4 py-2 w-full max-w-md rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#38BDF8]" />
+</header>
+
+<!-- Articles -->
+<main class="max-w-7xl mx-auto px-4 py-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+  <!-- Article Card -->
+  <div class="bg-white rounded-lg shadow p-5 hover:shadow-lg transition">
+    <img src="https://via.placeholder.com/400x200" alt="Article" class="rounded mb-4">
+    <h3 class="text-xl font-semibold text-[#0F172A] mb-2">The Future of AI</h3>
+    <p class="text-[#64748B] text-sm mb-3">How AI is reshaping our everyday lives—from creativity to productivity.</p>
+    <a href="#" class="text-[#14B8A6] hover:underline text-sm">Read more →</a>
+  </div>
+
+  <!-- More Cards (Duplicate & Edit) -->
+  <div class="bg-white rounded-lg shadow p-5 hover:shadow-lg transition">
+    <img src="https://via.placeholder.com/400x200" alt="Article" class="rounded mb-4">
+    <h3 class="text-xl font-semibold text-[#0F172A] mb-2">Mastering Tailwind CSS</h3>
+    <p class="text-[#64748B] text-sm mb-3">Learn how to build stunning interfaces with utility-first design.</p>
+    <a href="#" class="text-[#14B8A6] hover:underline text-sm">Read more →</a>
+  </div>
+
+  <div class="bg-white rounded-lg shadow p-5 hover:shadow-lg transition">
+    <img src="https://via.placeholder.com/400x200" alt="Article" class="rounded mb-4">
+    <h3 class="text-xl font-semibold text-[#0F172A] mb-2">10 Productivity Hacks</h3>
+    <p class="text-[#64748B] text-sm mb-3">Stay focused and get more done with these simple tips.</p>
+    <a href="#" class="text-[#14B8A6] hover:underline text-sm">Read more →</a>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#0F172A] text-white text-center py-6 mt-12">
+  <p class="text-sm">© 2025 MidnightBlog — Crafted with ✨ and Tailwind CSS.</p>
+</footer>
