@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../../services/auth/auth.service';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   
   router = inject(Router)
 
@@ -46,4 +46,24 @@ export class RegisterComponent {
       password: ""
     }
   }
+
+  ngOnInit(): void {
+    this.authService.user$.subscribe({
+      next: (user) => {
+        if (user) {
+          this.authService.currentUserSig.set({
+            username: user.displayName!,
+            email: user.email!
+          })
+        } else {
+          this.authService.currentUserSig.set(null)
+        }
+        
+        if (this.authService.currentUserSig()) {
+          this.router.navigate(["/"])
+        }
+      }
+    })
+  }
+  
 }

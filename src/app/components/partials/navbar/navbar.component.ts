@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth/auth.service';
 import { FormsModule } from '@angular/forms';
 
@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class NavbarComponent implements OnInit {
   authService = inject(AuthService)
+  router = inject(Router)
 
   ngOnInit(): void {
     this.authService.user$.subscribe({
@@ -33,7 +34,7 @@ export class NavbarComponent implements OnInit {
 
   onSubmit( form: FormsModule ) {
     this.authService.logout()
-    console.log("you are logged out")
+    this.router.navigate(["login"])
   }
 
 }
