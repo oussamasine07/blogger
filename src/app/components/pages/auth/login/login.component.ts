@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { EmailValidator, FormBuilder, FormsModule, NgForm, Validators } from "@angular/forms";
+import { AuthService } from '../../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -22,8 +23,22 @@ export class LoginComponent {
     password: ""
   }
 
+  authService = inject(AuthService);
+  errorMessage: string | null = null;
+
   onLoginSubmit(form: FormsModule) {
-    console.log(this.loginObj)
+
+    this.authService.login(this.loginObj.email, this.loginObj.password).subscribe({
+      next: (val) => {
+        console.log("youare logged in")
+        console.log(val);
+
+      },
+      error: (err) => {
+        this.errorMessage = err.code;
+      }
+    })
+    
     this.loginObj = {
       email: "",
       password: ""

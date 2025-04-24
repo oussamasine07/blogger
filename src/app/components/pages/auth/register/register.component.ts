@@ -21,6 +21,8 @@ export class RegisterComponent {
 
   authService = inject(AuthService);
 
+  errorMessage: string | null = null;
+
   onSubmit (form: FormsModule) {
     console.log(this.loginObj);
     this.authService.register(
@@ -31,6 +33,9 @@ export class RegisterComponent {
       next: (val) => {
         console.log("user added");
         this.router.navigate(["/login"])
+      },
+      error: (err) => {
+        this.errorMessage = err.code;
       }
     })
 

@@ -1,6 +1,10 @@
 <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
     <h2 class="text-3xl font-bold text-center mb-6">Create an Account</h2>
 
+    @if (errorMessage) {
+      <div> {{ errorMessage }} </div>
+    }
+
     <form class="space-y-5" #form="ngForm" (ngSubmit)="onSubmit(form)">
       <!-- Username -->
       <div>
