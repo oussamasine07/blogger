@@ -38,6 +38,7 @@ export class ArticalsComponent implements OnInit {
     
     this.articalService.filterByCategoryOrKeyword(this.filterObj.category, this.filterObj.keyword).subscribe({
       next: (articals) => {
+        console.log(articals)
         this.articals = articals
       }
     });

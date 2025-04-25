@@ -38,8 +38,37 @@ export class ArticalsService {
 
   }
 
-  filterByCategoryOrKeyword (category: string = "", keyword: string = ""): Observable<ArticalInterface[]> {
-    const q = query(this.articalsCollection, where('category', '==', category));
+  filterByCategoryOrKeyword (category: string | null = "", keyword: string | null = ""): Observable<ArticalInterface[]> {
+    let q: any;  // = query(this.articalsCollection, where('category', '==', category));
+    
+    // check both category and keywords
+    if (category && keyword) {
+      q = query(
+        this.articalsCollection, 
+        where('category', '==', category),
+        where('title', '>=', '\uf8ff'),
+        where('title', '<=', keyword + '\uf8ff')
+      )
+    }
+
+    // check if only category
+    else if ( category ) {
+      q = query(this.articalsCollection, where('category', '==', category));
+    }
+
+    // check if keyword only
+    else if ( keyword ) {
+      
+      q = query(
+        this.articalsCollection,
+        where('title', '>=', keyword),
+        where('title', '<=', keyword + '\uf8ff')
+      );
+    } 
+    else {
+      q = this.articalsCollection
+    }
+
 
     return collectionData(q, {
       idField: "id"
