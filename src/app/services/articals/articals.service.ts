@@ -19,4 +19,6 @@ export class ArticalsService {
     }) as Observable<ArticalInterface[]>;
   }
 
+  
+
 }

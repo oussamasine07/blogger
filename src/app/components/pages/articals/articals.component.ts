@@ -20,6 +20,7 @@ export class ArticalsComponent implements OnInit {
   ngOnInit(): void {
     this.articalService.getArtical().subscribe({
       next: (articals) => {
+        
         this.articals = articals
       }
     });
