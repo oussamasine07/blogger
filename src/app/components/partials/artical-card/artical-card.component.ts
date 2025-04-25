@@ -13,6 +13,7 @@ export class ArticalCardComponent {
     id: string,
     title: string, 
     articalBody: string, 
-    image: string
+    image: string,
+    category: string
   } 
 }
