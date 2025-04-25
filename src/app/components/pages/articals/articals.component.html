@@ -1,27 +1,35 @@
 <main class="max-w-7xl mx-auto px-4 py-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+
+    <app-artical-card
+        *ngFor="let artical of articals"
+        [artical]="artical"
+    ></app-artical-card>
+    
+
     <!-- Article Card -->
-    <div class="bg-white rounded-lg shadow p-5 hover:shadow-lg transition">
+    <!-- <div class="bg-white rounded-lg shadow p-5 hover:shadow-lg transition">
         <img src="https://via.placeholder.com/400x200" alt="Article" class="rounded mb-4">
         <h3 class="text-xl font-semibold text-[#0F172A] mb-2">The Future of AI</h3>
         <p class="text-[#64748B] text-sm mb-3">How AI is reshaping our everyday lives—from creativity to productivity.
         </p>
         <a href="#" class="text-[#14B8A6] hover:underline text-sm">Read more →</a>
-    </div>
+    </div> -->
 
     <!-- More Cards (Duplicate & Edit) -->
-    <div class="bg-white rounded-lg shadow p-5 hover:shadow-lg transition">
+    <!-- <div class="bg-white rounded-lg shadow p-5 hover:shadow-lg transition">
         <img src="https://via.placeholder.com/400x200" alt="Article" class="rounded mb-4">
         <h3 class="text-xl font-semibold text-[#0F172A] mb-2">Mastering Tailwind CSS</h3>
         <p class="text-[#64748B] text-sm mb-3">Learn how to build stunning interfaces with utility-first design.</p>
         <a href="#" class="text-[#14B8A6] hover:underline text-sm">Read more →</a>
-    </div>
+    </div> -->
 
-    <div class="bg-white rounded-lg shadow p-5 hover:shadow-lg transition">
+    <!-- <div class="bg-white rounded-lg shadow p-5 hover:shadow-lg transition">
         <img src="https://via.placeholder.com/400x200" alt="Article" class="rounded mb-4">
         <h3 class="text-xl font-semibold text-[#0F172A] mb-2">10 Productivity Hacks</h3>
         <p class="text-[#64748B] text-sm mb-3">Stay focused and get more done with these simple tips.</p>
         <a href="#" class="text-[#14B8A6] hover:underline text-sm">Read more →</a>
-    </div>
+    </div> -->
 </main>
 
 
