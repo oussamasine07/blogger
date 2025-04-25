@@ -22,6 +22,7 @@ export class ArticalsService {
 
   // get artical by id
   getArticalById (id: string): Observable<ArticalInterface> {
+    console.log(id)
     const docRef = doc(this.fireStore, `articales/${id}`)
     const promise = getDoc(docRef).then(res => {
       console.log(res.exists())

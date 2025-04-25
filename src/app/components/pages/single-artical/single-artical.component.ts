@@ -1,5 +1,6 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, input, Input, OnInit } from '@angular/core';
 import { ArticalsService } from '../../../services/articals/articals.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-single-artical',
@@ -16,9 +17,13 @@ export class SingleArticalComponent implements OnInit {
   }
 
   articalService = inject(ArticalsService)
+
+  @Input() articalId!: string;
+  route = inject(ActivatedRoute)
   
   ngOnInit(): void {
-    this.articalService.getArticalById("3dNAKIkBEtVSEbeI3cQ8").subscribe({
+    this.articalId = this.route.snapshot.paramMap.get("articalId") || "";
+    this.articalService.getArticalById(this.articalId).subscribe({
       next: (artical) => {
         console.log(artical)
         this.artical = artical
