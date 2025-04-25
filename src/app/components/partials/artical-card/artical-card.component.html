@@ -2,6 +2,5 @@
     <img src="https://via.placeholder.com/400x200" alt="Article" class="rounded mb-4">
     <h3 class="text-xl font-semibold text-[#0F172A] mb-2">{{ artical.title }}</h3>
     <p class="text-[#64748B] text-sm mb-3">{{ artical.articalBody | truncate:50 }}</p>
-    <!-- <p>{{ artical.id }}</p> -->
     <a routerLink="artical/{{ artical.id }}" class="text-[#14B8A6] hover:underline text-sm">Read more →</a>
 </div>
