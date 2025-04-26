@@ -1,10 +1,10 @@
 import { Component, inject, input, Input, OnInit } from '@angular/core';
 import { ArticalsService } from '../../../services/articals/articals.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-single-artical',
-  imports: [],
+  imports: [ RouterLink ],
   templateUrl: './single-artical.component.html',
   styleUrl: './single-artical.component.css'
 })
