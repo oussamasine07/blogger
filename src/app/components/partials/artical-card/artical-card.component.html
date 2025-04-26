@@ -1,4 +1,11 @@
-<div class="bg-white rounded-lg shadow p-5 hover:shadow-lg transition">
+<div class="relative bg-white rounded-lg shadow p-5 hover:shadow-lg transition">
+    <!-- Edit and Delete buttons -->
+    <div class="absolute top-2 right-2 flex space-x-2" *ngIf="currentUser?.id == artical.userId">
+        <a routerLink="update-artical/{{ artical.id }}" class="bg-blue-500 text-white text-xs px-3 py-1 rounded hover:bg-blue-600">Edit</a>
+        <button class="bg-red-500 text-white text-xs px-3 py-1 rounded hover:bg-red-600">Delete</button>
+    </div>
+        
+
     <img src="https://via.placeholder.com/400x200" alt="Article" class="rounded mb-4">
     <h3 class="text-xl font-semibold text-[#0F172A] mb-2">{{ artical.title }}</h3>
     <p class="text-[#64748B] text-sm mb-3">{{ artical.articalBody | truncate:50 }}</p>
