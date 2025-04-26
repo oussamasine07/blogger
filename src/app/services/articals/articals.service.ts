@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { addDoc, collection, collectionData, deleteDoc, doc, Firestore, getDoc, query, updateDoc, where } from '@angular/fire/firestore';
 import { from, Observable } from 'rxjs';
 import { ArticalInterface } from '../../interfaces/artical-interface';
+import { Comment } from '../../interfaces/comment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class ArticalsService {
 
   fireStore = inject(Firestore)
   articalsCollection = collection(this.fireStore, "articales");
+  commentsCollection = collection(this.fireStore, "comments");
 
   // get all articals
   getArtical (): Observable<ArticalInterface[]> {
@@ -112,6 +114,17 @@ export class ArticalsService {
     }) as Observable<ArticalInterface[]>;
   }
 
+
+  getComments (articalId: string): Observable<Comment[]> {
+    const q = query(
+      this.commentsCollection,
+      where('articalId', '==', articalId)
+    )
+
+    return collectionData(q, {
+      idField: "id"
+    }) as Observable<Comment[]>
+  }
   
 
 }

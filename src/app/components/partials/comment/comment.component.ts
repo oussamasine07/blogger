@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-comment',
@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './comment.component.css'
 })
 export class CommentComponent {
-
+  @Input() comment!: {
+    comment: string,
+    userId: string,
+    username: string
+  }
 }
