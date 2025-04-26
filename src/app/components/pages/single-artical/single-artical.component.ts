@@ -1,10 +1,11 @@
 import { Component, inject, input, Input, OnInit } from '@angular/core';
 import { ArticalsService } from '../../../services/articals/articals.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { CommentComponent } from '../../partials/comment/comment.component';
 
 @Component({
   selector: 'app-single-artical',
-  imports: [ RouterLink ],
+  imports: [ RouterLink, CommentComponent ],
   templateUrl: './single-artical.component.html',
   styleUrl: './single-artical.component.css'
 })
