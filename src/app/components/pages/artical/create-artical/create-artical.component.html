@@ -1,0 +1,54 @@
+<form class="max-w-xl mx-auto p-4 bg-white rounded-lg shadow mt-5" #form="ngForm" (ngSubmit)="onCreateArticalSubmit(form)">
+    <div class="mb-4">
+        <label for="titre" class="block text-gray-700 font-semibold mb-2">Title</label>
+        <input 
+            type="text" 
+            id="titre" 
+            placeholder="Enter the title"
+            class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+            name="title" 
+            [(ngModel)]="articalObj.title"
+        >
+    </div>
+
+    <div class="mb-4">
+        <label for="articalBody" class="block text-gray-700 font-semibold mb-2">Article Body</label>
+        <textarea 
+            id="articalBody" 
+            rows="5" 
+            placeholder="Write your article here..."
+            class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            name="articalBody" 
+            [(ngModel)]="articalObj.articalBody"    
+        ></textarea>
+    </div>
+
+    <div class="mb-4">
+        <label for="category" class="block text-gray-700 font-semibold mb-2">Category</label>
+        <select 
+            id="category" 
+            name="category"
+            class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            [(ngModel)]="articalObj.category" 
+        >
+            <option value="" disabled selected>Select a category</option>
+            <option value="technology">Technology</option>
+            <option value="health">Health</option>
+            <option value="lifestyle">Lifestyle</option>
+            <option value="business">Business</option>
+            <option value="entertainment">Entertainment</option>
+        </select>
+    </div>
+
+    <div class="mb-4">
+        <label for="image" class="block text-gray-700 font-semibold mb-2">Image</label>
+        <input type="file" id="image" name="image"
+            class="block w-full text-sm text-gray-700 border border-gray-300 rounded-md cursor-pointer bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-600 file:text-white hover:file:bg-blue-700">
+    </div>
+
+
+    <button type="submit"
+        class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-700 transition">
+        Create Article
+    </button>
+</form>
