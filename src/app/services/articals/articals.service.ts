@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { collection, collectionData, doc, Firestore, getDoc, query, where } from '@angular/fire/firestore';
+import { addDoc, collection, collectionData, deleteDoc, doc, Firestore, getDoc, query, updateDoc, where } from '@angular/fire/firestore';
 import { from, Observable } from 'rxjs';
 import { ArticalInterface } from '../../interfaces/artical-interface';
 
@@ -37,6 +37,42 @@ export class ArticalsService {
 
     return from(promise)
 
+  }
+
+  postArtical (data: {
+    articalBody: string;
+    title: string;
+    category: string;
+    userId: string | undefined
+  }) {
+
+    return addDoc(this.articalsCollection, {
+      articalBody: data.articalBody,
+      title: data.title,
+      category: data.category,
+      userId: data.userId
+    });
+
+  }
+
+  updateArtical (data: {
+    id: string;
+    articalBody: string;
+    title: string;
+    category: string;
+    userId: string | undefined
+  }) {
+
+    const articalRef = doc(this.fireStore, `articales/${data.id}`)
+
+    updateDoc(articalRef, data)
+
+  }
+
+  deleteArtical (articalId: string) {
+    const articalRef = doc(this.fireStore, `articales/${articalId}`)
+
+    deleteDoc(articalRef)
   }
 
   filterByCategoryOrKeyword (category: string | null = "", keyword: string | null = ""): Observable<ArticalInterface[]> {

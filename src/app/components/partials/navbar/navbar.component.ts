@@ -21,7 +21,8 @@ export class NavbarComponent implements OnInit {
         if (user) {
           this.authService.currentUserSig.set({
             username: user.displayName!,
-            email: user.email!
+            email: user.email!,
+            id: user.uid!
           })
         } else {
           this.authService.currentUserSig.set(null)

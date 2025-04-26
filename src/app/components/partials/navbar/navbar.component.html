@@ -16,7 +16,7 @@
         @if( authService.currentUserSig() ) {
             <div class="hidden md:flex space-x-4">
                 <p> {{ authService.currentUserSig()?.username }} </p>
-                <button class="bg-[#38BDF8] hover:bg-[#0EA5E9] text-white px-4 py-2 rounded">New Blog</button>
+                <a routerLink="/create-artical" class="bg-[#38BDF8] hover:bg-[#0EA5E9] text-white px-4 py-2 rounded">New Blog</a>
                 <form #form="ngForm" (ngSubmit)="onSubmit(form)">
                     <button type="submit" class="border border-[#38BDF8] text-[#38BDF8] hover:bg-[#0EA5E9] hover:text-white px-4 py-2 rounded">Logout</button>
                 </form>
