@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../../services/auth/auth.service';
 import { Router } from '@angular/router';
+import { ArticalsService } from '../../../../services/articals/articals.service';
 
 @Component({
   selector: 'app-create-artical',
@@ -13,6 +14,7 @@ export class CreateArticalComponent {
 
   router = inject(Router)
   authService = inject(AuthService)
+  articalService = inject(ArticalsService);
 
   ngOnInit(): void {
     console.log(this.authService.currentUserSig())
@@ -36,8 +38,7 @@ export class CreateArticalComponent {
 
   articalObj = {
     title: "", 
-    articalBody: "", 
-    image: "", 
+    articalBody: "",
     category: ""
   }
 
@@ -45,12 +46,15 @@ export class CreateArticalComponent {
 
     console.log(this.authService.currentUserSig())
 
+    this.articalService.postArtical({...this.articalObj, userId: this.authService.currentUserSig()?.id});
+
     this.articalObj = {
       title: "", 
       articalBody: "", 
-      image: "", 
       category: ""
     }
+
+    this.router.navigate(["/"])
   }
 
 }
