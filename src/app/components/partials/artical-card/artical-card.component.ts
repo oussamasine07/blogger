@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth/auth.service';
 import { UserInterface } from '../../../interfaces/user-interface';
 import { NgIf } from '@angular/common';
+import { ArticalsService } from '../../../services/articals/articals.service';
 
 @Component({
   selector: 'app-artical-card',
@@ -14,6 +15,7 @@ import { NgIf } from '@angular/common';
 export class ArticalCardComponent {
 
   authService = inject(AuthService)
+  articalService = inject(ArticalsService)
 
   @Input() artical!: {
     id: string,
@@ -45,5 +47,14 @@ export class ArticalCardComponent {
         
       }
     })
+  }
+
+  onDeleteArticalClick (articalId: string, userId: string) {
+    if (this.currentUser?.id == userId) {
+      this.articalService.deleteArtical(articalId);
+    } else {
+      console.log("unauthorized action")
+    }
+    
   }
 }
