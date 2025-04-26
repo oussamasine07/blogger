@@ -4,6 +4,7 @@ import { RegisterComponent } from './components/pages/auth/register/register.com
 import { ArticalsComponent } from './components/pages/articals/articals.component';
 import { SingleArticalComponent } from './components/pages/single-artical/single-artical.component';
 import { CreateArticalComponent } from './components/pages/artical/create-artical/create-artical.component';
+import { UpdateArticalComponent } from './components/pages/artical/update-artical/update-artical.component';
 
 export const routes: Routes = [
     {
@@ -25,5 +26,9 @@ export const routes: Routes = [
     {
         path: "create-artical",
         component: CreateArticalComponent
+    },
+    {
+        path: "update-artical/:articalId",
+        component: UpdateArticalComponent
     }
 ];

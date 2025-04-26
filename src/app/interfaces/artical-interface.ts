@@ -4,4 +4,5 @@ export interface ArticalInterface {
     image: string;
     title: string;
     category: string
+    userId: string
 }
