@@ -1,0 +1,14 @@
+<div class="bg-[#F1FAEE] p-4 rounded-md relative mb-4">
+    <!-- Delete Button -->
+    <button
+        class="absolute top-2 right-2 text-sm text-[#E63946] hover:underline focus:outline-none"
+        *ngIf="currentUser && currentUser.id === comment.userId"
+        (click)="onDeletCommentClick(comment.id)"
+    >
+        Delete
+    </button>
+
+    <!-- Comment Content -->
+    <p class="text-[#1D3557] font-semibold">{{ comment.username }}</p>
+    <p class="text-gray-600 mt-2">{{ comment.comment }}</p>
+</div>

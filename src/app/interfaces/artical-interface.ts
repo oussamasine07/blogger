@@ -4,5 +4,10 @@ export interface ArticalInterface {
     image: string;
     title: string;
     category: string
-    userId: string
+    userId: string,
+    comments: {
+        comment: string,
+        userId: string,
+        username: string
+    }[]
 }
