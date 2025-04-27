@@ -3,6 +3,7 @@
     <button
         class="absolute top-2 right-2 text-sm text-[#E63946] hover:underline focus:outline-none"
         *ngIf="currentUser && currentUser.id === comment.userId"
+        (click)="onDeletCommentClick(comment.id)"
     >
         Delete
     </button>

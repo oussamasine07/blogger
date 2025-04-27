@@ -141,6 +141,12 @@ export class ArticalsService {
     });
 
   }
+
+  deleteComment (commentId: string) {
+    const articalRef = doc(this.fireStore, `comments/${commentId}`)
+
+    deleteDoc(articalRef)
+  }
   
 
 }

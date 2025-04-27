@@ -29,7 +29,8 @@ export class SingleArticalComponent implements OnInit {
     comment: string,
     userId: string,
     username: string,
-    articalId: string
+    articalId: string,
+    id: string
   }[]
 
   articalService = inject(ArticalsService)
