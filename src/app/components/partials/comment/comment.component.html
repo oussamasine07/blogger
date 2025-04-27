@@ -1,7 +1,9 @@
-<div class="bg-[#F1FAEE] p-4 rounded-md relative">
+<div class="bg-[#F1FAEE] p-4 rounded-md relative mb-4">
     <!-- Delete Button -->
     <button
-        class="absolute top-2 right-2 text-sm text-[#E63946] hover:underline focus:outline-none">
+        class="absolute top-2 right-2 text-sm text-[#E63946] hover:underline focus:outline-none"
+        *ngIf="currentUser && currentUser.id === comment.userId"
+    >
         Delete
     </button>
 

@@ -125,6 +125,22 @@ export class ArticalsService {
       idField: "id"
     }) as Observable<Comment[]>
   }
+
+  postComment (data: {
+    comment: string;
+    userId: string | undefined;
+    username: string | undefined;
+    articalId: string | undefined
+  }) {
+
+    return addDoc(this.commentsCollection, {
+      articalId: data.articalId,
+      comment: data.comment,
+      userId: data.userId,
+      username: data.username
+    });
+
+  }
   
 
 }
