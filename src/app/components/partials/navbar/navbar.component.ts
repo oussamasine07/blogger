@@ -35,6 +35,7 @@ export class NavbarComponent implements OnInit {
 
   onSubmit( form: FormsModule ) {
     this.authService.logout()
+    this.authService.currentUserSig.set(null);
     this.router.navigate(["login"])
   }
 
